@@ -25,7 +25,7 @@ app.post('/stack',function(req,res){
   var DestinationClientSecret = req.body.DestinationClientSecret;
   var DestinationAuthBaseURI = req.body.DestinationAuthBaseURI;
   var DestinationMID = req.body.DestinationMID;
-
+  console.log('aa raha h1');
   var resAuth = request.post({
     headers: {'content-type' : 'application/json'},
     url:     SourceAuthBaseURI + '/v2/token',
@@ -41,7 +41,7 @@ app.post('/stack',function(req,res){
 
   });
 
-  console.log('aa raha h');
+  console.log('aa raha h2');
   console.log(resAuth);
 
 
