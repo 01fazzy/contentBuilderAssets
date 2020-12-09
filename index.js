@@ -26,7 +26,9 @@ app.post('/stack',function(req,res){
   var DestinationAuthBaseURI = req.body.DestinationAuthBaseURI;
   var DestinationMID = req.body.DestinationMID;
 
-  var resAuth = request.post({
+  var accessToken = '';
+
+  request.post({
     headers: {'content-type' : 'application/json'},
     url:     SourceAuthBaseURI + '/v2/token',
     body:JSON.stringify({
@@ -36,13 +38,18 @@ app.post('/stack',function(req,res){
           'account_id': SourceMID
     })
 
-    
+  },function(error, response, body){
+      accessToken = body.access_token;
+      //const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
+      //res.sendFile(ind2);
+      console.log("Access"+body.access_token);
+      console.log("response" + response);
 
+               
+      app.get('/', routes.activity );
+      app.post('/login', accessToken );
 
   });
-
-  console.log('aa raha h');
-  console.log(resAuth);
 
 
 })
