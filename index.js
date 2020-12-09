@@ -70,7 +70,7 @@ app.post('/stack', (req, res) => {
 })
 
 
-
+return res.redirect('/SecondPage.html');
 
 
 
