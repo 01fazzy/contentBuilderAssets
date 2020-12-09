@@ -27,9 +27,9 @@ app.post('/stack', (req, res) => {
   var DestinationAuthBaseURI = req.body.DestinationAuthBaseURI;
   var DestinationMID = req.body.DestinationMID;
 
-  var FirstNext = req.body.FirstNext;
-  console.log("FirstNext : " + FirstNext);
-      
+  var SourceAccessToken = '';
+  var DestinationAccessToken = '';
+
   request.post({
     headers: {'content-type' : 'application/json'},
     url: SourceAuthBaseURI + '/v2/token',
@@ -42,6 +42,7 @@ app.post('/stack', (req, res) => {
     json: true
   }, 
   function(error, response, body){
+    SourceAccessToken = body.access_token;
     console.log("Source Access : "+body.access_token);
     //console.log("body" + body); 
   });
@@ -59,6 +60,7 @@ app.post('/stack', (req, res) => {
     json: true
   }, 
   function(error, response, body){
+    DestinationAccessToken = body.access_token;
     console.log("Destination Access : "+body.access_token);
     //console.log("body" + body); 
   });
@@ -67,20 +69,20 @@ app.post('/stack', (req, res) => {
   const SecondPage = path.join(__dirname, 'public', 'SecondPage.html');
   res.sendFile(SecondPage);
 
-
-  //return res.redirect('/SecondPage.html');
-  //res.writeHead(301,
-  //  {Location: 'http://www.google.com'}
-  //);
-  //res.end();
-
 })
 
 
 
+app.get("*", (req,res) => {
+  const SecondPage = path.join(__dirname, 'public', 'SecondPage.html');
+  res.sendFile(SecondPage);
+});
 
+app.post('/stack', (req, res) => {
+  var test = req.body.test;
+  console.log("test : " + test);
 
-
+});
 
 
 
