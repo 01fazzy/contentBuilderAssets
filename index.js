@@ -7,8 +7,8 @@ var request = require('request');
 const { stringify } = require("querystring");
 
 app.get("*", (req,res) => {
-      const ind=path.join(__dirname, 'public', 'index.html');
-      res.sendFile(ind);
+      const FirstPage = path.join(__dirname, 'public', 'index.html');
+      res.sendFile(FirstPage);
 });
 app.use(express.urlencoded({
   extended: true
@@ -16,7 +16,7 @@ app.use(express.urlencoded({
 
 
 
-app.post('/PostData', (req, res) => {
+app.post('/stack', (req, res) => {
   var SourceClientID = req.body.SourceClientID;
   var SourceClientSecret = req.body.SourceClientSecret;
   var SourceAuthBaseURI = req.body.SourceAuthBaseURI;
@@ -42,8 +42,6 @@ app.post('/PostData', (req, res) => {
     json: true
   }, 
   function(error, response, body){
-    //const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
-    //res.sendFile(ind2);
     console.log("Source Access : "+body.access_token);
     //console.log("body" + body); 
   });
@@ -61,14 +59,13 @@ app.post('/PostData', (req, res) => {
     json: true
   }, 
   function(error, response, body){
-    //const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
-    //res.sendFile(ind2);
     console.log("Destination Access : "+body.access_token);
     //console.log("body" + body); 
   });
 
 
-
+  const SecondPage = path.join(__dirname, 'public', 'SecondPage.html');
+  res.sendFile(SecondPage);
 
 
   //return res.redirect('/SecondPage.html');
