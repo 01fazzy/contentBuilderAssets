@@ -45,8 +45,8 @@ app.post('/stack',function(req,res){
       //res.sendFile(ind2);
       console.log("body : " + stringify(body));
       console.log("Access : " + stringify(body.access_token));
-      console.log("response Access Token : " + stringify(response.access_token));
-      console.log("response : " + stringify(response));
+      console.log("response Access Token : " + JSON.stringify(response.body.access_token));
+      console.log("response : " + JSON.stringify(response));
       console.log("error : " + stringify(error));
 
 
