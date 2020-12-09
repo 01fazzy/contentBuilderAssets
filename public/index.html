@@ -50,13 +50,13 @@
 <body>
 <div id="step1" class="step">
     
-    <form>
+    <form  method='post' action='/stack'>
         <div class="row no-gutters">
         <div class="col no-gutters">
             <div class="leftSide">
                 <h4>Source Credentials</h4><br><br><br><br>
                 <label for="SourceClientID">Client ID:</label>
-                <input Class="InputTags" type="text" id="SourceClientID" name="SourceClientID" placeholder="Source Client ID"><br><br>
+                <input Class="InputTags" value="" type="text" id="SourceClientID" name="SourceClientID" placeholder="Source Client ID"><br><br>
 
                 <label for="SourceClientSecret">Client Secret:</label>
                 <input Class="InputTags" value="" type="text" id="SourceClientSecret" name="SourceClientSecret" placeholder="Source Client Secret"><br><br>
@@ -80,7 +80,7 @@
             </div>
         </div>
         </div>
-        <button class="Button" id="FirstNext">Next</button>
+        <button class="Button" id="FirstNext" type="submit">Next</button>
 
     </form>
 </div>
