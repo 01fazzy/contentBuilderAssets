@@ -67,7 +67,7 @@ app.post('/stack', (req, res) => {
 
   //return res.redirect('/SecondPage.html');
   res.writeHead(301,
-    {Location: 'google.com'}
+    {Location: 'http://www.google.com'}
   );
   res.end();
 
