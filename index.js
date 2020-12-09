@@ -15,6 +15,13 @@ app.use(express.urlencoded({
 
 
 app.post('/stack',function(req,res){
+
+  console.log("Hello");
+  console.log("clientSecret : "+req.body.SourceClientSecret);
+  console.log("clientId : "+req.body.SourceClientID);
+  console.log("authUrl : "+req.body.SourceAuthBaseURI);
+  console.log("MID : "+req.body.SourceMID);
+
   var tmp = req.body.SourceClientID;
   var tmp1 = req.body.SourceClientSecret;
   var tmp2 = req.body.SourceMID;
