@@ -43,11 +43,13 @@ app.post('/stack',function(req,res){
       accessToken = body.access_token;
       //const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
       //res.sendFile(ind2);
-      console.log("body : " + JSON.stringify(body));
+      //console.log("body : " + JSON.stringify(body));
       console.log("body.access_token : " + JSON.stringify(body.access_token));
-      console.log("response.body.access_token : " + JSON.stringify(response.body.access_token));
-      console.log("response : " + JSON.stringify(response));
-      console.log("error : " + JSON.stringify(error));
+      console.log("body.access_token : " + stringify(body.access_token));
+      console.log("body.access_token : " + body.access_token);
+      //console.log("response.body.access_token : " + JSON.stringify(response.body.access_token));
+      //console.log("response : " + JSON.stringify(response));
+      //console.log("error : " + JSON.stringify(error));
 
 
   });
