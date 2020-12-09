@@ -4,6 +4,7 @@ const path = require('path');
 var http = require('http');
 const port = process.env.PORT || 3000
 var request = require('request');
+const { stringify } = require("querystring");
 
 app.get("*", (req,res) => {
       const ind=path.join(__dirname, 'public', 'index.html');
@@ -42,12 +43,10 @@ app.post('/stack',function(req,res){
       accessToken = body.access_token;
       //const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
       //res.sendFile(ind2);
-      console.log("Access"+body.access_token);
-      console.log("response" + response);
+      console.log("Access :" + body.access_token);
+      console.log("response :" + response);
+      console.log("error :" + stringify(error));
 
-               
-      app.get('/', routes.activity );
-      app.post('/login', accessToken );
 
   });
 
