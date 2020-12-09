@@ -66,8 +66,8 @@ app.post('/stack', (req, res) => {
   });
 
 
-  const SecondPage = path.join(__dirname, 'public', 'SecondPage.html');
-  res.sendFile(SecondPage);
+  //const SecondPage = path.join(__dirname, 'public', 'SecondPage.html');
+  //res.sendFile(SecondPage);
 
 })
 
@@ -77,8 +77,13 @@ app.get("*", (req,res) => {
   const SecondPage = path.join(__dirname, 'public', 'SecondPage.html');
   res.sendFile(SecondPage);
 });
+app.use(express.urlencoded({
+  extended: true
+}))
 
-app.post('/stack', (req, res) => {
+
+
+app.post('/stack1', (req, res) => {
   var test = req.body.test;
   console.log("test : " + test);
 
