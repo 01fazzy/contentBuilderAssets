@@ -27,7 +27,7 @@ app.post('/stack',function(req,res){
   var DestinationAuthBaseURI = req.body.DestinationAuthBaseURI;
   var DestinationMID = req.body.DestinationMID;
 
-  var accessToken = '';
+  
 
   request.post({
     headers: {'content-type' : 'application/json'},
@@ -40,14 +40,15 @@ app.post('/stack',function(req,res){
     })
 
   },function(error, response, body){
-      accessToken += body.access_token;
       //const ind2=path.join(__dirname, 'public', 'SFMC-DE.html');
       //res.sendFile(ind2);
       //console.log("body : " + JSON.stringify(body));
-      console.log("accessToken : " + accessToken);
       console.log("body.access_token : " + JSON.stringify(body.access_token));
       console.log("body.access_token : " + stringify(body.access_token));
       console.log("body.access_token : " + body.access_token);
+      console.log("body : " + JSON.stringify(body));
+      console.log("body : " + stringify(body));
+      console.log("body : " + body);
       //console.log("response.body.access_token : " + JSON.stringify(response.body.access_token));
       //console.log("response : " + JSON.stringify(response));
       //console.log("error : " + JSON.stringify(error));
