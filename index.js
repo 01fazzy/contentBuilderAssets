@@ -25,23 +25,23 @@ app.post('/stack',function(req,res){
   var DestinationClientSecret = req.body.DestinationClientSecret;
   var DestinationAuthBaseURI = req.body.DestinationAuthBaseURI;
   var DestinationMID = req.body.DestinationMID;
-  console.log('aa raha h1');
+
   var resAuth = request.post({
     headers: {'content-type' : 'application/json'},
     url:     SourceAuthBaseURI + '/v2/token',
-    body:{
+    body:JSON.stringify({
           'client_id': SourceClientID, //pass Client ID
           'client_secret': SourceClientSecret, //pass Client Secret
           'grant_type': 'client_credentials',
           'account_id': SourceMID
-    }
+    })
 
     
 
 
   });
 
-  console.log('aa raha h2');
+  console.log('aa raha h');
   console.log(resAuth);
 
 
