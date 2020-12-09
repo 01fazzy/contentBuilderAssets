@@ -29,7 +29,7 @@
         .InputTags {
             position:  absolute;
             left: 120px;
-            width: 500px;
+            width: 450px;
             border:1px solid black;
         }
         .Button {
@@ -42,6 +42,10 @@
             display: inline-block;
             font-size: 16px;
             margin-left: 610px;
+        }
+        .BaseUrl{
+            position: absolute;
+            left: 580px;
         }
 
     </style>
@@ -62,7 +66,8 @@
                 <input Class="InputTags" value="" type="text" id="SourceClientSecret" name="SourceClientSecret" placeholder="Source Client Secret"><br><br>
 
                 <label for="SourceAuthBaseURI">Auth Base URI:</label>
-                <input class="InputTags" value="" type="text" id="SourceAuthBaseURI"  name="SourceAuthBaseURI" placeholder="Source Authentication Base URI"><br><br>
+                <input class="InputTags" value="" type="text" id="SourceAuthBaseURI"  name="SourceAuthBaseURI" placeholder="Source Authentication Base URI">
+                <lable class="BaseUrl">/v2/token</lable><br><br>
 
                 <label for="SourceMID">MID:</label>
                 <input Class="InputTags" value="" type="text" id="SourceMID" name="SourceMID" placeholder="Source MID"><br><br>
@@ -79,7 +84,8 @@
                 <input Class="InputTags" value="" type="text" id="DestinationClientSecret" name="DestinationClientSecret" placeholder="Destination Client Secret"><br><br>
 
                 <label for="DestinationAuthBaseURI">Auth Base URI:</label>
-                <input class="InputTags" value="" type="text" id="DestinationAuthBaseURI"  name="DestinationAuthBaseURI" placeholder="Destination Authentication Base URI"><br><br>
+                <input class="InputTags" value="" type="text" id="DestinationAuthBaseURI"  name="DestinationAuthBaseURI" placeholder="Destination Authentication Base URI">
+                <lable class="BaseUrl">/v2/token</lable><br><br>
 
                 <label for="DestinationMID">MID:</label>
                 <input Class="InputTags" value="" type="text" id="DestinationMID" name="DestinationMID" placeholder="Destination MID"><br><br>
