@@ -65,7 +65,11 @@ app.post('/stack', (req, res) => {
     //console.log("body" + body); 
   });
 
-  return res.redirect('/SecondPage.html');
+  //return res.redirect('/SecondPage.html');
+  res.writeHead(301,
+    {Location: 'google.com'}
+  );
+  res.end();
 
 })
 
