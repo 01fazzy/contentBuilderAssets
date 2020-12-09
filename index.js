@@ -16,19 +16,35 @@ app.use(express.urlencoded({
 
 app.post('/stack',function(req,res){
 
-  console.log("Hello");
-  console.log("clientSecret : "+req.body.SourceClientSecret);
-  console.log("clientId : "+req.body.SourceClientID);
-  console.log("authUrl : "+req.body.SourceAuthBaseURI);
-  console.log("MID : "+req.body.SourceMID);
+  var SourceClientID = req.body.SourceClientID;
+  var SourceClientSecret = req.body.SourceClientSecret;
+  var SourceAuthBaseURI = req.body.SourceAuthBaseURI;
+  var SourceMID = req.body.SourceMID;
 
-  var tmp = req.body.SourceClientID;
-  var tmp1 = req.body.SourceClientSecret;
-  var tmp2 = req.body.SourceMID;
+  var DestinationClientID = req.body.DestinationClientID;
+  var DestinationClientSecret = req.body.DestinationClientSecret;
+  var DestinationAuthBaseURI = req.body.DestinationAuthBaseURI;
+  var DestinationMID = req.body.DestinationMID;
 
-  console.log(tmp)  // stackoverflow0
-  console.log(tmp1)  // stackoverflow1
-  console.log(tmp2)
+  var resAuth = request.post({
+    headers: {'content-type' : 'application/json'},
+    url:     SourceAuthBaseURI + '/v2/token',
+    body:{
+          'client_id': SourceClientID, //pass Client ID
+          'client_secret': SourceClientSecret, //pass Client Secret
+          'grant_type': 'client_credentials',
+          'account_id': SourceMID
+    }
+
+    
+
+
+  });
+
+  console.log('aa raha h');
+  console.log(resAuth);
+
+
 })
 
 
