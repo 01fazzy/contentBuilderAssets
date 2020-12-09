@@ -65,16 +65,23 @@ app.post('/stack', (req, res) => {
     //console.log("body" + body); 
   });
 
+
+
+
+
   //return res.redirect('/SecondPage.html');
-  res.writeHead(301,
-    {Location: 'file:///C:/Users/HP/Desktop/contentBuilderAssets/public/SecondPage.html'}
-  );
-  res.end();
+  //res.writeHead(301,
+  //  {Location: 'http://www.google.com'}
+  //);
+  //res.end();
 
 })
 
 
-
+app.get("*", (req,res) => {
+  const ind=path.join(__dirname, 'public', 'SecondPage.html');
+  res.sendFile(ind);
+});
 
 
 
