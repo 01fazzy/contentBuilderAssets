@@ -26,7 +26,9 @@ app.post('/stack', (req, res) => {
   var DestinationClientSecret = req.body.DestinationClientSecret;
   var DestinationAuthBaseURI = req.body.DestinationAuthBaseURI;
   var DestinationMID = req.body.DestinationMID;
-  
+
+  var FirstNext = req.body.FirstNext;
+  console.log("FirstNext : " + FirstNext);
       
   request.post({
     headers: {'content-type' : 'application/json'},
@@ -78,10 +80,10 @@ app.post('/stack', (req, res) => {
 })
 
 
-app.get("*", (req,res) => {
-  const ind=path.join(__dirname, 'public', 'SecondPage.html');
-  res.sendFile(ind);
-});
+
+
+
+
 
 
 
