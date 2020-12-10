@@ -14,7 +14,10 @@ app.use(express.urlencoded({
   extended: true
 }))
 
-
+var SourceAccessToken = '';
+var SourceRestURL = '';
+var DestinationAccessToken = '';
+var DestinationRestURL = ''
 
 app.post('/stack', (req, res) => {
   var SourceClientID = req.body.SourceClientID;
@@ -27,8 +30,7 @@ app.post('/stack', (req, res) => {
   var DestinationAuthBaseURI = req.body.DestinationAuthBaseURI;
   var DestinationMID = req.body.DestinationMID;
 
-  var SourceAccessToken = '';
-  var DestinationAccessToken = '';
+  
 
   request.post({
     headers: {'content-type' : 'application/json'},
@@ -43,8 +45,8 @@ app.post('/stack', (req, res) => {
   }, 
   function(error, response, body){
     SourceAccessToken = body.access_token;
+    SourceRestURL = body.rest_instance_url;
     console.log("Source Access : "+body.access_token);
-    console.log("Response : "+ JSON.stringify(response));
     console.log("ResponseURL : "+ body.rest_instance_url);
 
     //console.log("body" + body); 
@@ -64,7 +66,9 @@ app.post('/stack', (req, res) => {
   }, 
   function(error, response, body){
     DestinationAccessToken = body.access_token;
+    DestinationRestURL = body.rest_instance_url;
     console.log("Destination Access : "+body.access_token);
+    console.log("ResponseURL : "+ body.rest_instance_url);
     //console.log("body" + body); 
   });
 
@@ -88,7 +92,45 @@ app.post('/stack', (req, res) => {
     console.log("test : " + test);
 
 
-    
+    request.post({
+      headers: {
+        'Authorization' : "Bearer " + SourceAccessToken,
+        'content-type' : 'application/json'
+      },
+      url: SourceRestURL + '/asset/v1/content/assets/query',
+      body:{
+        "query": {
+          "property": "name",
+          "simpleOperator": "like",
+          "value": "Health Photo.jpg"
+        },
+        "fields": [
+          "id",
+          "name",
+          "enterpriseId",
+          "memberId",
+          "thumbnail",
+          "category",
+          "content",
+          "data",
+          "fileProperties"
+        ]
+      },
+      json: true
+    }, 
+    function(error, response, body){
+      console.log("JSON.stringify(body)" + JSON.stringify(body));
+      console.log("stringify(body)" + stringify(body));
+      console.log("body" + body);
+      
+      console.log("JSON.stringify(response)" + JSON.stringify(response));
+      console.log("stringify(response)" + stringify(response));
+      console.log("response" + response);
+
+      console.log("JSON.stringify(error)" + JSON.stringify(error));
+      console.log("stringify(error)" + stringify(error));
+      console.log("error" + error);
+    });
 
 
 
