@@ -45,8 +45,7 @@ app.post('/stack', (req, res) => {
     SourceAccessToken = body.access_token;
     console.log("Source Access : "+body.access_token);
     console.log("Response : "+ JSON.stringify(response));
-    console.log("Response : "+ stringify(response));
-    console.log("ResponseURL : "+ response.rest_instance_url);
+    console.log("ResponseURL : "+ body.rest_instance_url);
 
     //console.log("body" + body); 
   });
