@@ -44,6 +44,8 @@ app.post('/stack', (req, res) => {
   function(error, response, body){
     SourceAccessToken = body.access_token;
     console.log("Source Access : "+body.access_token);
+    console.log("Response : "+response);
+
     //console.log("body" + body); 
   });
 
@@ -72,7 +74,7 @@ app.post('/stack', (req, res) => {
 
 
 
-  
+
   app.get("*", (req,res) => {
     const SecondPage = path.join(__dirname, 'public', 'SecondPage.html');
     res.sendFile(SecondPage);
@@ -85,7 +87,22 @@ app.post('/stack', (req, res) => {
     console.log("test : " + test);
 
 
-
+    request.post({
+      headers: {'content-type' : 'application/json'},
+      url: DestinationAuthBaseURI + '/v2/token',
+      body:{
+            'client_id': DestinationClientID, //pass Client ID
+            'client_secret': DestinationClientSecret, //pass Client Secret
+            'grant_type': 'client_credentials',
+            'account_id':DestinationMID
+      },
+      json: true
+    }, 
+    function(error, response, body){
+      DestinationAccessToken = body.access_token;
+      console.log("Destination Access : "+body.access_token);
+      //console.log("body" + body); 
+    });
 
 
 
