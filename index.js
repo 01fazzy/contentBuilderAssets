@@ -120,16 +120,10 @@ app.post('/stack', (req, res) => {
     }, 
     function(error, response, body){
       console.log("JSON.stringify(body)" + JSON.stringify(body));
-      console.log("stringify(body)" + stringify(body));
-      console.log("body" + body);
       
       console.log("JSON.stringify(response)" + JSON.stringify(response));
-      console.log("stringify(response)" + stringify(response));
-      console.log("response" + response);
 
       console.log("JSON.stringify(error)" + JSON.stringify(error));
-      console.log("stringify(error)" + stringify(error));
-      console.log("error" + error);
     });
 
 
